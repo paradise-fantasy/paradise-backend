@@ -1,11 +1,11 @@
 "use strict";
 
-const PORT = process.env.NODE_ENV === 'production' ? 80 : 3000;
 
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
+app.set('port', (process.env.PORT || 3000));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
@@ -44,4 +44,4 @@ app.post('/api/bluetooth-events', (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-app.listen(PORT, () => console.log('Listening to 3000'))
+app.listen(app.get('port'), () => console.log('Listening to 3000'))
