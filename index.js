@@ -1,7 +1,5 @@
 "use strict";
 
-console.log('NODE_ENV', process.env.NODE_ENV);
-
 const PORT = process.env.NODE_ENV === 'production' ? 80 : 3000;
 
 const express = require('express');
@@ -46,4 +44,4 @@ app.post('/api/bluetooth-events', (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-app.listen(3000, () => console.log('Listening to 3000'))
+app.listen(PORT, () => console.log('Listening to 3000'))
