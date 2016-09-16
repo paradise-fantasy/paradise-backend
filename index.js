@@ -1,5 +1,7 @@
 "use strict";
 
+console.log('NODE_ENV', process.env.NODE_ENV);
+
 const PORT = process.env.NODE_ENV === 'production' ? 80 : 3000;
 
 const express = require('express');
