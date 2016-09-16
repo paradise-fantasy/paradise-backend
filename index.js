@@ -1,5 +1,7 @@
 "use strict";
 
+const PORT = proces.env.NODE_ENV === 'production' ? 80 : 3000;
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
