@@ -1,0 +1,28 @@
+{
+  "name": "paradise-backend",
+  "version": "1.0.0",
+  "description": "Backend for paradise",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paradise-fantasy/paradise-backend.git"
+  },
+  "author": "Paradise Fantasy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paradise-fantasy/paradise-backend/issues"
+  },
+  "homepage": "https://github.com/paradise-fantasy/paradise-backend#readme",
+  "engines": {
+    "node": "4.4.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "pg": "^6.1.0"
+  }
+}
