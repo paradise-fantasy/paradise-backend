@@ -49,7 +49,7 @@ app.post('/api/bluetooth-events', (req, res) => {
 
 app.get('/api/rpi-vitals', (req, res) => {
   pool.query('SELECT * FROM rpi_vitals ORDER BY date DESC LIMIT 1')
-    .then(() => res.json(res.rows[0]))
+    .then(result => res.json(result.rows[0]))
     .catch(err => res.status(500).json(err));
 })
 
