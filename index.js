@@ -54,7 +54,7 @@ app.post('/api/rpi-vitals-events', (req, res) => {
   const diskTotal = req.body.disk_total;
   const diskAvail = req.body.disk_avail;
 
-  pool.query('INSERT INTO rpi_vitals(load, mem_total, mem_avail, temp, disk_total, disk_avail) VALUES ($1, $2, $3, $4, $5, $6)', [load, memTotal, memAvail, temp, diskTotal, diskAvail])
+  pool.query('INSERT INTO rpi_vitals(load, mem_total, mem_avail, temperature, disk_total, disk_avail) VALUES ($1, $2, $3, $4, $5, $6)', [load, memTotal, memAvail, temperature, diskTotal, diskAvail])
     .then(() => res.sendStatus(200))
     .catch(err => res.status(500).json(err))
 });
