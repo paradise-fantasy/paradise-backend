@@ -66,4 +66,19 @@ app.post('/api/rpi-vitals-events', (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-app.listen(app.get('port'), () => console.log('Listening to 3000'))
+app.listen(app.get('port'), () => console.log('Listening to 3000'));
+
+
+/**
+ * Deletes all rows older than 60 minutes in rpi_vitals every hour.
+ * @type {cron}
+ */
+var rpiVitalsJob = new cron.CronJob({
+  cronTime: '00 * * * * *',
+  onTick: () => {
+    pool.query('DELETE FROM rpi_vitals WHERE date < (now() - INTERVAL \'60 minutes\')')
+      .then(res => console.log(`Deleted ${res.rowCount} old rows`))
+      .catch(err => console.error(err))
+  },
+  start: true
+});
